@@ -1,6 +1,6 @@
 [root]
 name = "guessing_game"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "ansi_term 0.9.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "rand 0.3.15 (registry+https://github.com/rust-lang/crates.io-index)",

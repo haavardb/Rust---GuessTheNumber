@@ -10,7 +10,7 @@ fn main() {
     println!("{}", Blue.bold().underline().paint("\n\n-- Guess the number --\n\n"));
     println!("Please input your guess, between 1-100.");
     let secret_number = rand::thread_rng().gen_range(1, 101);
-    //println!("The secret number is: {}", secret_number);
+
     loop {
 
         let mut guess = String::new();
@@ -19,9 +19,16 @@ fn main() {
             .expect("Failed to read line");
 
         let guess: u32 = match guess.trim().parse() {
-            Ok(num) => num,
+            Ok(num) => {
+                if num > 100 {
+                    println!("{}", Red.paint("Please type a BETWEEN 1-100 you idiot..."));
+                    100
+                } else {
+                    num
+                }
+            },
             Err(_) => {
-                println!("{}", Red.paint("Please type a number you idiot"));
+                println!("{}", Red.paint("Please type a number you idiot..."));
                 continue;
             },
         };
